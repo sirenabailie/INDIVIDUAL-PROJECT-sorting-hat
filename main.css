@@ -1,7 +1,110 @@
+@font-face {
+  font-family: 'MagicOwlFont';
+  src: url('/Fonts/MagicOwlFont.otf');
+  }
+
+  @font-face {
+    font-family: 'HarryFont';
+    src: url('/Fonts/HarryFont.ttf');
+    }
+
 body {
   text-align: center;
+  background-image: url(https://th.bing.com/th/id/R.babbc58844e6cf6bd77388f223529c77?rik=1YB6dgSt%2biPg%2bw&riu=http%3a%2f%2fwww.pixelstalk.net%2fwp-content%2fuploads%2f2016%2f07%2fHogwarts-Castle-Desktop-Backgrounds.jpg&ehk=avenvRrBNImmXe817j0losMqbfTUWyBH7oQxKaOqMeg%3d&risl=&pid=ImgRaw&r=0);
+  background-size: cover; 
+  background-repeat: no-repeat; 
+  background-attachment: fixed; 
+  background-position: center;
+  font-family: 'MagicOwlFont', sans-serif;
+}
+
+#welcome-title {
+  font-family: 'HarryFont';
+}
+
+#welcome {
+  background-color: #0e1a40;
+  color: white;
+  backdrop-filter: blur(7px) saturate(180%);
+  -webkit-backdrop-filter: blur(7px) saturate(180%);
+  background-color: rgba(17, 25, 40, 0.75);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.125);;
+}
+
+#app {
+  display: flex;
+  flex-flow: row wrap;
 }
 
 #form {
   display: none;
+}
+
+#showform {
+  background-image: url(https://www.katebackdrop.com/cdn/shop/products/KateUniverseBackdropStarrySkyforPhotography7x5ftBH1036822D.jpg?v=1639377688);
+  background-size: cover;
+}
+
+#form-submit {
+  background-image: url(https://www.katebackdrop.com/cdn/shop/products/KateUniverseBackdropStarrySkyforPhotography7x5ftBH1036822D.jpg?v=1639377688);
+  background-size: cover;
+}
+
+.btn {
+  font-family: HarryFont;
+}
+
+/* filter btn colors */
+#show-all-btn {
+  /* background-color: black;
+  color: #d3a625 */
+  background-image: url(https://www.katebackdrop.com/cdn/shop/products/KateUniverseBackdropStarrySkyforPhotography7x5ftBH1036822D.jpg?v=1639377688);
+  background-size: cover;
+}
+
+#gryffindor-btn {
+  background-color: #740001;
+  color: #d3a625;
+}
+
+#slytherin-btn {
+  background-color: #008000;
+  color: #aaaaaa;
+}
+
+#ravenclaw-btn {
+  background-color: #0e1a40;
+  color: #bebebe;
+}
+
+#hufflepuff-btn {
+  background-color: #ecb939;
+  color: #372e29
+}
+
+
+/* filter card colors */
+.title-gryffindor {
+  background-color: #740001;
+  color: #d3a625;
+}
+
+.title-slytherin {
+ background-color: #008000;
+ color: #aaaaaa;
+}
+
+.title-ravenclaw {
+background-color: #0e1a40;
+color: #bebebe;
+}
+
+.title-hufflepuff {
+  background-color: #ecb939;
+  color: #372e29
+}
+
+.btn {
+  border: #0e1a40;
 }
