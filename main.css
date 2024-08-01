@@ -117,3 +117,19 @@ color: #bebebe;
 background-size: cover;
 height: 225px;
 }
+
+
+#ex-spelled {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+
+.wizardname {
+  font-family: HarryFont;
+  margin: 10px;
+}
+
+.wizardhouse {
+  font-family: HarryFont;
+}
