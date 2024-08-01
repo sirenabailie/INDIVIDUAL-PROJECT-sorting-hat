@@ -1,15 +1,10 @@
-// hides form until btn click
+// Hides form until button click
 document.getElementById('showform').addEventListener('click', function() {
   var form = document.getElementById('form');
-  if (form.style.display === 'none' || form.style.display === '') {
-      form.style.display = 'block';
-  } else {
-      form.style.display = 'none';
-  }
-}); 
+  form.style.display = (form.style.display === 'none' || form.style.display === '') ? 'block' : 'none';
+});
 
-
-// setup for houses and wizards
+// Setup for houses and wizards
 const houses = ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"];
 const houseImages = {
   Gryffindor: 'https://mrwallpaper.com/images/high/gryffindor-house-crest-artwork-h0g3h4hn7l34rz5q.jpg',
@@ -30,83 +25,110 @@ const wizards = [
     house: "Slytherin",
   }
 ];
+const expelledWizards = [];  // Array to manage expelled wizards
 
-
-
-// utility function 
+// Utility function to render HTML to a specific div
 const renderToDom = (divId, htmlToRender) => {
   const selectedDiv = document.querySelector(divId);
   selectedDiv.innerHTML = htmlToRender;
 };
 
-
-// renders cards to dom
+// Function to render wizard cards to the main div
 const wizardsOnDom = (array) => {
   let domString = "";
   array.forEach((wizard) => {
-
-    const titleClass = wizard.house === 'Gryffindor' ? 'title-gryffindor' : wizard.house === 'Slytherin' ? 'title-slytherin' : wizard.house === 'Ravenclaw' ? 'title-ravenclaw' : 'title-hufflepuff';  
-    
+    const titleClass = wizard.house === 'Gryffindor' ? 'title-gryffindor' :
+                       wizard.house === 'Slytherin' ? 'title-slytherin' :
+                       wizard.house === 'Ravenclaw' ? 'title-ravenclaw' :
+                       'title-hufflepuff';
     const houseImage = houseImages[wizard.house];
-
     const houseBlurb = houseBlurbs[wizard.house];
 
     domString += `<div class="card mx-auto ${titleClass}" style="width: 18rem;">
-    <img class="card-img-top" src="${houseImage}" alt="Card image cap">
-        <h3 class="card-title">${wizard.name}</h3>
-        <div class="card-body">
-          <h4 class="card-title">${wizard.house}</h4>
-          <h5 class="card-text">${houseBlurb}</h5>
-          </div>
-          <button class="btn btn-danger expel-btn" id="delete--${wizard.id}">Ex-Spell</button>
-      </div>`; 
+      <img class="card-img-top" src="${houseImage}" alt="Card image cap">
+      <h3 class="card-title wizardname">${wizard.name}</h3>
+      <div class="card-body">
+        <h4 class="card-title wizardhouse">${wizard.house}</h4>
+        <h5 class="card-text">${houseBlurb}</h5>
+      </div>
+      <button class="btn btn-danger expel-btn" id="delete--${wizard.id}">Ex-Spell</button>
+    </div>`; 
   });
   renderToDom('#app', domString);
-}
-
-// filter wizards by assigned house
-const filter = (array, houseString) => {
-  const houseArray = [];
-  for (const wizard of array) {
-    if (wizard.house === houseString) {
-      houseArray.push(wizard);
-    }
-  }
-
-  return houseArray;
 };
 
+// Function to render expelled wizard cards to the #ex-spelled div
+const expelledWizardsOnDom = (array) => {
+  let domString = "";
+  array.forEach((wizard) => {
+    const titleClass = wizard.house === 'Gryffindor' ? 'title-gryffindor' :
+                       wizard.house === 'Slytherin' ? 'title-slytherin' :
+                       wizard.house === 'Ravenclaw' ? 'title-ravenclaw' :
+                       'title-hufflepuff';
+    const houseImage = houseImages[wizard.house];
+    const houseBlurb = houseBlurbs[wizard.house];
 
-wizardsOnDom(wizards);
+    domString += `<div class="card mx-auto ${titleClass}" style="width: 18rem;">
+      <img class="card-img-top" src="${houseImage}" alt="Card image cap">
+      <h3 class="card-title wizardname">${wizard.name}</h3>
+      <div class="card-body">
+        <h4 class="card-title wizardhouse">${wizard.house}</h4>
+        <h5 class="card-text">${houseBlurb}</h5>
+      </div>
+    </div>`; 
+  });
+  renderToDom('#ex-spelled', domString);
+};
 
+// Function to handle the expel button click event
+const handleExpel = (id) => {
+  const index = wizards.findIndex(e => e.id === Number(id));
+  if (index > -1) {
+    // Move the wizard to the expelledWizards array
+    expelledWizards.push(wizards[index]);
+    wizards.splice(index, 1);
+    // Update the DOM
+    wizardsOnDom(wizards);
+    expelledWizardsOnDom(expelledWizards);
+  }
+};
 
-// create form
+// Event listener for expel button click
+document.getElementById('app').addEventListener('click', (e) => {
+  if (e.target.id.includes("delete")) {
+    const [, id] = e.target.id.split("--");
+    handleExpel(id);
+  }
+});
+
+// Create form functionality
 const form = document.querySelector('form');      
 const createWizard = (e) => {                        
   e.preventDefault();   
-
   const newWizard = {  
     id: wizards.length + 1,
     name: document.querySelector("#name").value,
     house: houses[Math.floor(Math.random() * houses.length)],
-    // houseDescription: document.querySelector("#houseDescription").value,
-  }
-
+  };
   wizards.push(newWizard);
   wizardsOnDom(wizards);
   form.reset();
-}
+};
 
-//submit form
+// Submit form event listener
 form.addEventListener('submit', createWizard); 
 
+// Filter wizards by house functionality
+const filter = (array, houseString) => {
+  return array.filter(wizard => wizard.house === houseString);
+};
 
+// Event listeners for house filters
 const showAllBtn = document.querySelector("#show-all-btn");
 const showGryffindorBtn = document.querySelector("#gryffindor-btn");
 const showSlytherinBtn = document.querySelector("#slytherin-btn");
 const showRavenclawBtn = document.querySelector("#ravenclaw-btn");
 const showHufflepuffBtn = document.querySelector("#hufflepuff-btn");
-
 
 showAllBtn.addEventListener("click", () => {    
   wizardsOnDom(wizards);
@@ -132,11 +154,6 @@ showHufflepuffBtn.addEventListener("click", () => {
   wizardsOnDom(hufflepuff);
 });
 
-
-//call event last
-const startApp = () => {                              
-  wizardsOnDom(wizards);                                 
-}
-
-// call event function
-startApp();
+// Initial rendering
+wizardsOnDom(wizards);
+expelledWizardsOnDom(expelledWizards);
