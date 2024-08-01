@@ -11,14 +11,26 @@ document.getElementById('showform').addEventListener('click', function() {
 
 // setup for houses and wizards
 const houses = ["Gryffindor", "Slytherin", "Ravenclaw", "Hufflepuff"];
+const houseImages = {
+  Gryffindor: 'https://mrwallpaper.com/images/high/gryffindor-house-crest-artwork-h0g3h4hn7l34rz5q.jpg',
+  Slytherin:  'https://wallpapercave.com/wp/wp2727931.jpg',
+  Ravenclaw:  'https://preview.redd.it/does-anybody-else-prefer-the-hl-house-crests-over-the-v0-xadix09heg3b1.jpeg?width=1179&format=pjpg&auto=webp&s=c5cdb479072f3617b078f8d24e741423f36011a2',
+  Hufflepuff: 'https://wallpapercave.com/wp/wp11077690.jpg'
+}
+const houseBlurbs = {
+  Gryffindor: "You might belong in Gryffindor, where dwell the brave at heart, their daring, nerve, and chivalry set Gryffindors apart.",
+  Slytherin: "In Slytherin you'll make your real friends, those cunning folks use any means to achieve their ends.",
+  Ravenclaw: "In wise old Ravenclaw, if you've a ready mind, where those of wit and learning will always find their kind.",
+  Hufflepuff: "You might belong in Hufflepuff, where they are just and loyal, those patient Hufflepuffs are true and unafraid of toil."
+}
 const wizards = [
   {
     id: 1,
     name: "Dahlia DeathMetal",
     house: "Slytherin",
-    houseDescription: "Cunning and uses any means to achieve their ends"
   }
 ];
+
 
 
 // utility function 
@@ -34,15 +46,19 @@ const wizardsOnDom = (array) => {
   array.forEach((wizard) => {
 
     const titleClass = wizard.house === 'Gryffindor' ? 'title-gryffindor' : wizard.house === 'Slytherin' ? 'title-slytherin' : wizard.house === 'Ravenclaw' ? 'title-ravenclaw' : 'title-hufflepuff';  
+    
+    const houseImage = houseImages[wizard.house];
+
+    const houseBlurb = houseBlurbs[wizard.house];
 
     domString += `<div class="card mx-auto ${titleClass}" style="width: 18rem;">
-    <img class="card-img-top" src="..." alt="Card image cap">
+    <img class="card-img-top" src="${houseImage}" alt="Card image cap">
         <h3 class="card-title">${wizard.name}</h3>
         <div class="card-body">
-          <h5 class="card-title">${wizard.house}</h5>
-          <p class="card-text">${wizard.houseDescription}</p>
+          <h4 class="card-title">${wizard.house}</h4>
+          <h5 class="card-text">${houseBlurb}</h5>
           </div>
-          <button class="btn btn-danger expel-btn" id="delete--${wizard.id}">Expell</button>
+          <button class="btn btn-danger expel-btn" id="delete--${wizard.id}">Ex-Spell</button>
       </div>`; 
   });
   renderToDom('#app', domString);
@@ -84,17 +100,6 @@ const createWizard = (e) => {
 //submit form
 form.addEventListener('submit', createWizard); 
 
-// const filter = (array, house) => {
-//   return array.filter(wizard => wizard.house === house);
-// };
-
-//() events last
-const startApp = () => {                              
-  wizardsOnDom(wizards);                                 
-}
-
-// call event function
-startApp();
 
 const showAllBtn = document.querySelector("#show-all-btn");
 const showGryffindorBtn = document.querySelector("#gryffindor-btn");
@@ -126,3 +131,12 @@ showHufflepuffBtn.addEventListener("click", () => {
   const hufflepuff = filter(wizards, "Hufflepuff");
   wizardsOnDom(hufflepuff);
 });
+
+
+//call event last
+const startApp = () => {                              
+  wizardsOnDom(wizards);                                 
+}
+
+// call event function
+startApp();

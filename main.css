@@ -55,6 +55,10 @@ body {
   font-family: HarryFont;
 }
 
+.buttons {
+  margin: 25px;
+}
+
 /* filter btn colors */
 #show-all-btn {
   /* background-color: black;
@@ -92,7 +96,7 @@ body {
 
 .title-slytherin {
  background-color: #008000;
- color: #aaaaaa;
+ color: #dedddd;
 }
 
 .title-ravenclaw {
@@ -107,4 +111,9 @@ color: #bebebe;
 
 .btn {
   border: #0e1a40;
+}
+
+.card-img-top {
+background-size: cover;
+height: 225px;
 }
