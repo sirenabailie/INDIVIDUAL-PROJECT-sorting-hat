@@ -158,3 +158,18 @@ height: 200px;
 .spacing {
   margin: 20px;
 }
+
+.form-control {
+  color: #3e4862!important;
+}
+
+.form-control {
+  color: #3e4862!important;
+  border-color: #3e4862!important;
+}
+
+.form-floating {
+  width: 150px;
+  margin: 0 auto;
+  color: #3e4862!important;
+}
