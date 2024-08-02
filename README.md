@@ -1,4 +1,4 @@
-# Sorting Hat [![Netlify Status](url)]
+# Sorting Hat [![Netlify Status](https://api.netlify.com/api/v1/badges/21458535-884f-473c-b69e-8e641c0474ec/deploy-status)](https://app.netlify.com/sites/sirenas-sorting-hat/deploys)
 
 ## OVERVIEW: 
 The purpose of this app is to sort the user into one of four Hogwarts houses randomly, and generate a card based on name input. The cards can then be 'ex=spelled' to voldemort's army as death eaters.
@@ -16,9 +16,11 @@ The purpose of this app is to sort the user into one of four Hogwarts houses ran
 - When the "Ex-Spell" button is clicked, the card is moved from the "app-content" div to the 'ex-spelled-content" div. The card also changes image, background color, house type, and house description. 
 
 ## HELPUL LINKS:
-- Netlify link:  
+- Netlify link:  https://sirenas-sorting-hat.netlify.app/
 
 ## CONTRIBUTORS: 
 Sirena Foster https://github.com/sirenabailie
 
-SCREENSHOTS:
+SCREENSHOTS: 
+![Screenshot](/Screenshots/sortinghat.png)
+![Screenshot](/Screenshots/sortinghat2.png)
