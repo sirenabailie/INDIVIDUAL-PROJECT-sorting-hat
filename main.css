@@ -32,9 +32,10 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.125);;
 }
 
-#app {
+#app-content {
   display: flex;
   flex-flow: row wrap;
+  color: white;
 }
 
 #form {
@@ -68,45 +69,45 @@ body {
 }
 
 #gryffindor-btn {
-  background-color: #740001;
-  color: #d3a625;
+  background-color: #8a0204;
+  color: #e9bd48;
 }
 
 #slytherin-btn {
-  background-color: #008000;
-  color: #aaaaaa;
+  background-color: #0e560d;
+  color: #e0e0e0;
 }
 
 #ravenclaw-btn {
-  background-color: #0e1a40;
-  color: #bebebe;
+  background-color: #0a1349;
+  color: #f8c025;
 }
 
 #hufflepuff-btn {
-  background-color: #ecb939;
-  color: #372e29
+  background-color: #f6db3f;
+  color: #754421
 }
 
 
 /* filter card colors */
 .title-gryffindor {
-  background-color: #740001;
-  color: #d3a625;
+  background-color: #8a0204;
+  color: #e9bd48;
 }
 
 .title-slytherin {
- background-color: #008000;
- color: #dedddd;
+ background-color: #0e560d;
+ color: #e0e0e0;
 }
 
 .title-ravenclaw {
-background-color: #0e1a40;
-color: #bebebe;
+background-color: #0a1349;
+color: #f8c025;
 }
 
 .title-hufflepuff {
-  background-color: #ecb939;
-  color: #372e29
+  background-color: #f6db3f;
+  color: #754421
 }
 
 .btn {
@@ -115,11 +116,12 @@ color: #bebebe;
 
 .card-img-top {
 background-size: cover;
-height: 225px;
+height: 200px;
 }
 
 
-#ex-spelled {
+
+#ex-spelled-content {
   display: flex;
   flex-flow: row wrap;
 }
@@ -132,4 +134,26 @@ height: 225px;
 
 .wizardhouse {
   font-family: HarryFont;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal-width columns */
+  gap: 10px; 
+}
+
+.header-font {
+  text-align: center;
+  font-family: HarryFont;
+  color: white
+}
+
+.expelled {
+  color: white;
+  background-color: #3e4862;
+  margin: 20px;
+}
+
+.spacing {
+  margin: 20px;
 }
