@@ -89,6 +89,9 @@ body {
   color: #754421
 }
 
+.hidden {
+  display: none;
+}
 
 /* filter card colors */
 .title-gryffindor {
@@ -172,4 +175,9 @@ height: 200px;
   width: 150px;
   margin: 0 auto;
   color: #3e4862!important;
+}
+
+.expel-btn {
+  width: 50%;
+  margin: 10% auto;
 }
