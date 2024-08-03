@@ -11,7 +11,7 @@ const houseImages = { // Object mapping house names to image URLs
   Gryffindor: 'https://mrwallpaper.com/images/high/gryffindor-house-crest-artwork-h0g3h4hn7l34rz5q.jpg',
   Slytherin: 'https://www.factinate.com/wp-content/uploads/2018/01/21-30.jpg',
   Ravenclaw: 'https://th.bing.com/th/id/R.a93e6613852630506c924f0b0d4cf9a5?rik=6GP3xaiygkn7TA&pid=ImgRaw&r=0',
-  Hufflepuff: 'https://i.etsystatic.com/16399819/r/il/0edd01/1935571865/il_570xN.1935571865_i6ig.jpg'
+  Hufflepuff: 'https://mrwallpaper.com/images/high/grunge-hufflepuff-crest-fozpekmrnbm6he4w.webp'
 };
 const houseBlurbs = { // Object mapping house names to descriptive blurbs
   Gryffindor: "You might belong in Gryffindor, where dwell the brave at heart, their daring, nerve, and chivalry set Gryffindors apart.",

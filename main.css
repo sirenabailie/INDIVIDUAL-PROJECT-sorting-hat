@@ -85,8 +85,8 @@ body {
 }
 
 #hufflepuff-btn {
-  background-color: #f6db3f;
-  color: #754421
+  background-color: #d3bf4a;
+  color: #494530;
 }
 
 .hidden {
@@ -110,8 +110,8 @@ color: #f8c025;
 }
 
 .title-hufflepuff {
-  background-color: #f6db3f;
-  color: #754421
+  background-color: #d3bf4a;
+  color: #494530
 }
 
 .btn {
@@ -122,8 +122,6 @@ color: #f8c025;
 background-size: cover;
 height: 200px;
 }
-
-
 
 #ex-spelled-content {
   display: flex;
